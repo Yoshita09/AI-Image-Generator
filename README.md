@@ -105,3 +105,15 @@ http://localhost:3000
 | --------------------------- | ------------------------------------------------------- |
 | `REACT_APP_RUNWARE_API_KEY` | Your personal Runware API key used for image generation |
 
+---
+
+## 👩‍💻 Made by
+
+**Yoshita Singhal**
+
+- GitHub: [@yoshita09](https://github.com/yoshita09)
+- LinkedIn: [Yoshita Singhal](https://linkedin.com/in/yoshita09)
+
+---
+
+

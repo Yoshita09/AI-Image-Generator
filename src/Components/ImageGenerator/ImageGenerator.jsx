@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import "./ImageGenerator.css";
 import default_image from "../Assets/default_image.svg";
-import { Runware } from "@runware/sdk-js";  
+import { InferenceClient } from "@huggingface/inference";
 
 const ImageGenerator = () => {
   const [imageUrl, setImageUrl] = useState("/");
@@ -14,20 +14,20 @@ const ImageGenerator = () => {
 
     setLoading(true);
     try {
-      const runware = new Runware({
-        apiKey: process.env.REACT_APP_RUNWARE_API_KEY,
+      // Initialize Hugging Face client
+      const client = new InferenceClient(process.env.REACT_APP_HF_TOKEN);
+
+      // Generate image using text-to-image model
+      const imageBlob = await client.textToImage({
+        provider: "auto",
+        model: "black-forest-labs/FLUX.1-Krea-dev",
+        inputs: prompt,
+        parameters: { num_inference_steps: 5 },
       });
 
-      const images = await runware.requestImages({
-        positivePrompt: prompt,
-        model: "runware:101@1", 
-        width: 1024,
-        height: 1024,
-      });
-
-    
-      const generatedImageUrl = images[0].imageURL;
-      setImageUrl(generatedImageUrl);
+      // Convert Blob to URL
+      const imageObjectURL = URL.createObjectURL(imageBlob);
+      setImageUrl(imageObjectURL);
     } catch (error) {
       console.error("Error generating image:", error);
       alert("Failed to generate image. Please try again!");

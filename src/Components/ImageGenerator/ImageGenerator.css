@@ -1,89 +1,185 @@
-.ai-image-generator{
-    display: flex;
+.ai-image-generator {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  align-items: center;
+  margin-top: 60px;
+  margin-bottom: 40px;
+  gap: 30px;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.header {
+  font-size: 60px;
+  font-weight: 500;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.header span {
+  color: #de1b89;
+  font-weight: 600;
+}
+
+.img-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.img-loading img {
+  width: 100%;
+  max-width: 512px;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+.search-box {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1000px;
+  min-height: 80px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  background: #1f3540;
+  padding: 10px 20px;
+  gap: 15px;
+  box-sizing: border-box;
+}
+
+.search-input {
+  flex: 1;
+  min-width: 200px;
+  height: 50px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  color: white;
+  padding-left: 20px;
+}
+
+.search-input::placeholder {
+  color: #999;
+}
+
+.generate-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 60px;
+  font-size: 18px;
+  border-radius: 50px;
+  background: #de1b89;
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.generate-btn:hover {
+  background: #c21576;
+  transform: scale(1.05);
+}
+
+.loading-bar {
+  width: 0px;
+  height: 20px;
+  background: #de1b89;
+}
+
+.loading-bar-full {
+  width: 100%;
+  max-width: 512px;
+  height: 20px;
+  background: #de1b89;
+  transition: width 20s ease;
+}
+
+.loading-text {
+  font-size: 16px;
+  text-align: center;
+  color: white;
+}
+
+.display-none {
+  display: none;
+}
+
+/* ---------- RESPONSIVE DESIGN ---------- */
+
+/* Tablets and small laptops */
+@media (max-width: 1024px) {
+  .header {
+    font-size: 50px;
+  }
+
+  .search-box {
     flex-direction: column;
-    margin: auto;
-    align-items: center;
-    margin-top: 80px;
-    margin-bottom: 20px;
-    gap: 30px;
+    border-radius: 30px;
+    padding: 20px;
+  }
+
+  .generate-btn {
+    width: 180px;
+    height: 55px;
+    font-size: 16px;
+  }
 }
 
-.header{
-    font-size: 70px;
-    font-weight: 500;
-    padding-bottom: 30px;
-    
-}
+/* Mobile Devices */
+@media (max-width: 768px) {
+  .header {
+    font-size: 40px;
+  }
 
-.header span{
-    color: #DE1B89;
-    font-weight: 600;
-}
+  .img-loading img {
+    width: 90%;
+  }
 
-.img-loading{
-    display: flex;
+  .search-box {
     flex-direction: column;
+    width: 100%;
+    border-radius: 30px;
+  }
+
+  .search-input {
+    width: 100%;
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .generate-btn {
+    width: 100%;
+    height: 55px;
+    font-size: 16px;
+  }
+
+  .loading-bar-full {
+    width: 90%;
+  }
 }
 
-.img-loading img{
-    width: 512px;
-}
+/* Very small screens */
+@media (max-width: 480px) {
+  .header {
+    font-size: 32px;
+  }
 
-.search-box{
-    display: flex;
-    width: 1000px;
-    height: 95px;
-    justify-content: space-around;
-    align-items: center;
-    border-radius: 50px;
-    background: #1f3540;
-}
+  .search-box {
+    padding: 15px;
+    gap: 10px;
+  }
 
-.search-input{
-    width: 600px;
+  .generate-btn {
+    font-size: 15px;
     height: 50px;
-    background: transparent;
-    border: none;
-    outline: none;
-    font-size: 18px;
-    color: white;
-    padding-left: 35px;
-    margin-right: 35px;
-}
+  }
 
-.serach-input::placeholder{
-    color: #999;
-}
-
-.generate-btn{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 300px;
-    height: 85px;
-    font-size: 20px;
-    border-radius: 50px;
-    background: #DE1B89;
-    cursor: pointer;
-}    
-
-.loading-bar{
-    width: 0px;
-    height: 30px;
-    background: #DE1B89;
-}
-
-.loading-text{
-    font-size: 18px;
-}
-
-.loading-bar-full{
-    width: 512px;
-    height: 30px;
-    background: #DE1B89;
-    transition: 20s;
-}
-
-.display-none{
-    display: none;
+  .search-input {
+    font-size: 15px;
+  }
 }

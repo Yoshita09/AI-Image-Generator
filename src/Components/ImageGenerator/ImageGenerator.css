@@ -5,16 +5,16 @@
   align-items: center;
   margin-top: 60px;
   margin-bottom: 40px;
-  gap: 30px;
+  gap: 25px;
   padding: 0 20px;
-  box-sizing: border-box;
+  text-align: center;
 }
 
 .header {
-  font-size: 60px;
+  font-size: 3.5rem;
   font-weight: 500;
   padding-bottom: 20px;
-  text-align: center;
+  line-height: 1.2;
 }
 
 .header span {
@@ -26,26 +26,26 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 15px;
 }
 
 .img-loading img {
   width: 100%;
   max-width: 512px;
-  border-radius: 10px;
-  object-fit: contain;
+  border-radius: 16px;
+  object-fit: cover;
 }
 
 .search-box {
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
-  max-width: 1000px;
-  min-height: 80px;
   justify-content: center;
   align-items: center;
-  border-radius: 50px;
   background: #1f3540;
+  border-radius: 50px;
   padding: 10px 20px;
+  width: 100%;
+  max-width: 900px;
   gap: 15px;
   box-sizing: border-box;
 }
@@ -70,25 +70,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 200px;
+  width: 220px;
   height: 60px;
   font-size: 18px;
   border-radius: 50px;
   background: #de1b89;
   cursor: pointer;
-  color: white;
-  transition: all 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .generate-btn:hover {
-  background: #c21576;
-  transform: scale(1.05);
+  background: #c21878;
+  transform: scale(1.03);
 }
 
 .loading-bar {
-  width: 0px;
+  width: 0;
   height: 20px;
   background: #de1b89;
+  border-radius: 10px;
 }
 
 .loading-bar-full {
@@ -96,90 +96,78 @@
   max-width: 512px;
   height: 20px;
   background: #de1b89;
-  transition: width 20s ease;
+  transition: width 2s ease-in-out;
+  border-radius: 10px;
 }
 
 .loading-text {
   font-size: 16px;
-  text-align: center;
-  color: white;
+  color: #fff;
+  margin-top: 8px;
 }
 
 .display-none {
   display: none;
 }
 
-/* ---------- RESPONSIVE DESIGN ---------- */
+/* ===========================
+   📱 Responsive Design
+=========================== */
 
-/* Tablets and small laptops */
 @media (max-width: 1024px) {
   .header {
-    font-size: 50px;
+    font-size: 3rem;
   }
-
-  .search-box {
-    flex-direction: column;
-    border-radius: 30px;
-    padding: 20px;
-  }
-
   .generate-btn {
-    width: 180px;
+    width: 200px;
     height: 55px;
-    font-size: 16px;
+    font-size: 17px;
   }
 }
 
-/* Mobile Devices */
 @media (max-width: 768px) {
   .header {
-    font-size: 40px;
+    font-size: 2.5rem;
   }
 
   .img-loading img {
-    width: 90%;
+    max-width: 400px;
   }
 
   .search-box {
     flex-direction: column;
-    width: 100%;
-    border-radius: 30px;
+    border-radius: 25px;
+    padding: 15px;
   }
 
   .search-input {
     width: 100%;
+    text-align: center;
     font-size: 16px;
-    padding: 10px;
   }
 
   .generate-btn {
-    width: 100%;
-    height: 55px;
+    width: 180px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    font-size: 2rem;
+  }
+
+  .img-loading img {
+    max-width: 320px;
+  }
+
+  .generate-btn {
+    width: 160px;
+    height: 45px;
     font-size: 16px;
   }
 
   .loading-bar-full {
     width: 90%;
-  }
-}
-
-/* Very small screens */
-@media (max-width: 480px) {
-  .header {
-    font-size: 32px;
-  }
-
-  .search-box {
-    padding: 15px;
-    gap: 10px;
-  }
-
-  .generate-btn {
-    font-size: 15px;
-    height: 50px;
-  }
-
-  .search-input {
-    font-size: 15px;
   }
 }

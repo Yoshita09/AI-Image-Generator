@@ -1,7 +1,6 @@
 # 🎨 AI Image Generator
 
-An AI-powered image generation web app built with **React.js** that allows users to create stunning visuals from text prompts using the **Runware API**.  
-This project demonstrates text-to-image generation with a simple yet modern UI.
+An AI-powered image generation web app built with **React.js** that allows users to create stunning visuals from text prompts using the **Runware API**. This project demonstrates text-to-image generation with a simple yet modern UI.
 
 ---
 
@@ -32,6 +31,7 @@ This project demonstrates text-to-image generation with a simple yet modern UI.
 
 ## 🧩 Folder Structure
 
+```
 ai_image_generator/
 ├── public/
 ├── src/
@@ -45,7 +45,7 @@ ai_image_generator/
 ├── .gitignore
 ├── package.json
 └── README.md
-
+```
 ---
 
 ## ⚙️ Setup and Installation

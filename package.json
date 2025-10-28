@@ -6,6 +6,7 @@
     "@google/genai": "^1.27.0",
     "@google/generative-ai": "^0.24.1",
     "@huggingface/inference": "^4.13.0",
+    "@pollinations/react": "^2.0.7",
     "@runware/sdk-js": "^1.1.50",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",

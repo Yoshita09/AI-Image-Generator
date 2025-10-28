@@ -197,3 +197,73 @@
     width: 90%;
   }
 }
+
+/* 🔄 Loading overlay effect */
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(31, 53, 64, 0.9);
+  padding: 25px 40px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 0.3s ease-in-out;
+  z-index: 10;
+}
+
+/* Animated progress bar */
+.loading-bar-full {
+  position: relative;
+  overflow: hidden;
+  width: 180px;
+  height: 10px;
+  background: rgba(222, 27, 137, 0.2);
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.loading-bar-full::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 30%;
+  background: #de1b89;
+  border-radius: 10px;
+  animation: loadingMove 1.2s linear infinite;
+}
+
+
+/* Text animation */
+.loading-text {
+  font-size: 18px;
+  color: #fff;
+  font-weight: 500;
+}
+
+/* Keyframes */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes loadingMove {
+  0% {
+    left: 0%;
+  }
+  50% {
+    left: 70%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+

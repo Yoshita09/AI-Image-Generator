@@ -1,39 +1,22 @@
 import React, { useRef, useState } from "react";
 import "./ImageGenerator.css";
 import default_image from "../Assets/default_image.svg";
-import { InferenceClient } from "@huggingface/inference";
 
 const ImageGenerator = () => {
   const [imageUrl, setImageUrl] = useState("/");
   const [loading, setLoading] = useState(false);
   const inputRef = useRef(null);
 
-  const imageGenerator = async () => {
+  const generateImage = async () => {
     const prompt = inputRef.current?.value?.trim();
-    if (!prompt) return;
+    if (!prompt) return alert("Please enter a prompt!");
 
     setLoading(true);
-    try {
-      // Initialize Hugging Face client
-      const client = new InferenceClient(process.env.REACT_APP_HF_TOKEN);
-
-      // Generate image using text-to-image model
-      const imageBlob = await client.textToImage({
-        provider: "auto",
-        model: "black-forest-labs/FLUX.1-Krea-dev",
-        inputs: prompt,
-        parameters: { num_inference_steps: 5 },
-      });
-
-      // Convert Blob to URL
-      const imageObjectURL = URL.createObjectURL(imageBlob);
-      setImageUrl(imageObjectURL);
-    } catch (error) {
-      console.error("Error generating image:", error);
-      alert("Failed to generate image. Please try again!");
-    } finally {
-      setLoading(false);
-    }
+    const randomSeed = Math.floor(Math.random() * 10000);
+    const url = `https://image.pollinations.ai/prompt/${encodeURIComponent(
+      prompt
+    )}?width=1024&height=1024&model=flux&seed=${randomSeed}`;
+    setImageUrl(url);
   };
 
   return (
@@ -42,18 +25,26 @@ const ImageGenerator = () => {
         AI Image <span>Generator</span>
       </div>
 
-      <div className="img-loading">
+      <div className="img-loading" style={{ position: "relative" }}>
         <div className="image">
-          <img src={imageUrl === "/" ? default_image : imageUrl} alt="" />
+          <img
+            src={imageUrl === "/" ? default_image : imageUrl}
+            alt="Generated"
+            className="generated-img"
+            onLoad={() => setLoading(false)}
+            onError={() => {
+              setLoading(false);
+              alert("Failed to load image. Try again!");
+            }}
+          />
         </div>
 
-        <div className="loading">
-          <div className={loading ? "loading-bar-full" : "loading-bar"}>
-            <div className={loading ? "loading-text" : "display-none"}>
-              Loading...
-            </div>
+        {loading && (
+          <div className="loading">
+            <div className="loading-text">Generating...</div>
+            <div className="loading-bar-full"></div>
           </div>
-        </div>
+        )}
       </div>
 
       <div className="search-box">
@@ -63,7 +54,7 @@ const ImageGenerator = () => {
           className="search-input"
           placeholder="Describe what you want to see"
         />
-        <div className="generate-btn" onClick={imageGenerator}>
+        <div className="generate-btn" onClick={generateImage}>
           Generate
         </div>
       </div>

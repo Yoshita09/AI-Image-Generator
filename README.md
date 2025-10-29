@@ -6,7 +6,7 @@ An AI-powered image generation web app built with **React.js** that allows users
 
 ## 🔗 Live Demo
 
-🌐 **Try it here:** [https://ai-image-generator.vercel.app](https://ai-image-generator.vercel.app)
+🌐 **Try it here:** [https://ai-image-generator-phi-tan.vercel.app/](https://ai-image-generator-phi-tan.vercel.app/)
 
 ---
 
